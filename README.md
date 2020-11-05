@@ -1,5 +1,10 @@
 # Interview Scheduler
 
+![page1](https://github.com/HoneyehYz/scheduler/blob/master/doc/page1.png)
+![page2](https://github.com/HoneyehYz/scheduler/blob/master/doc/page2.png)
+![page3](https://github.com/HoneyehYz/scheduler/blob/master/doc/page3.png)
+
+
 ## Setup
 
 Install dependencies with `npm install`.
@@ -20,4 +25,11 @@ npm test
 
 ```sh
 npm run storybook
+
+```
+## Running Cypress Test Framework
+
+```sh
+npm run cypress
+
 ```

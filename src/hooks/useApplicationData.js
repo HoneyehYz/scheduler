@@ -66,11 +66,12 @@ function cancelInterview(id, cb, params, errorParams) {
   .delete(`http://localhost:8001/api/appointments/${id}`)
   .then(() => {    
     dispatch({ type: SET_INTERVIEW, value: appointments });
-  })
-  .then(() => {
-    dispatch({ type: UPDATE_SPOTS });
     cb(params, true)
   })
+  // .then(() => {
+  //   dispatch({ type: UPDATE_SPOTS });
+  //   cb(params, true)
+  // })
   .catch((err) => {
     console.error(err)
     cb(errorParams, true )

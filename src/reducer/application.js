@@ -5,12 +5,15 @@ export const UPDATE_INTERVIEW = "UPDATE_INTERVIEW";
 export const UPDATE_SPOTS = "UPDATE_SPOTS";
 //updating spots
 export default function reducer(state, action) {
+  
   const setSpots = () => {
+    const appointments = action.value;
+    console.log(appointments);
     let spotCount = 5;
     for (let day in state.days) {
       if (state.days[day].name === state.day) {
         for (let id of state.days[day].appointments) {
-          if (state.appointments[id].interview !== null) {
+          if (appointments[id].interview !== null) {
             spotCount--;
           }
         }
@@ -30,7 +33,7 @@ export default function reducer(state, action) {
   //Logic to change the day, update application data, or book an interview
   switch (action.type) {
     case SET_DAY:
-      return { ...state, day: action.value, days: setSpots() };
+      return { ...state, day: action.value};
     case SET_APPLICATION_DATA:
       const days = action.value[0].data;
       const appointments = action.value[1].data;

@@ -36,7 +36,7 @@ export default function Appointment(props) {
     .bookInterview(props.id, interview, transition, SHOW, ERROR_SAVE)
 }
   function deleteApp() {
-    transition(DELETING);
+    transition(DELETING, true);
     props
     .cancelInterview(props.id, transition, EMPTY, ERROR_DELETE)
 }
@@ -73,7 +73,7 @@ export default function Appointment(props) {
 {mode === CONFIRM && (
 <Confirm
 message="Are you sure you would like to delete?"
-onCancel={() => back()}
+onCancel={back}
 onConfirm={deleteApp}
 />
 )}
@@ -83,15 +83,15 @@ onConfirm={deleteApp}
   interviewer={props.interview.interviewer.id}
   interviewers={props.interviewers}
   onSave={save}
-  onCancel={() => back()}
+  onCancel={back}
   />
 )}
 {mode === ERROR_DELETE && (
-  <Error message="Error Deleting Appointment" onClose={() => back()} />
+  <Error message="Error Deleting Appointment" onClose={back} />
 )}
 
 {mode === ERROR_SAVE && (
-  <Error message="Error Saving Appointment" onClose={() => back()} />
+  <Error message="Error Saving Appointment" onClose={back} />
 )}
     </article>
   );

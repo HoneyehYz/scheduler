@@ -30,7 +30,7 @@ export default function reducer(state, action) {
   //Logic to change the day, update application data, or book an interview
   switch (action.type) {
     case SET_DAY:
-      return { ...state, day: action.value };
+      return { ...state, day: action.value, days: setSpots() };
     case SET_APPLICATION_DATA:
       const days = action.value[0].data;
       const appointments = action.value[1].data;
@@ -43,6 +43,7 @@ export default function reducer(state, action) {
         ...state.appointments[action.value.id],
         interview: action.value.interview
       };
+     
       const newAppointments = {
         ...state.appointments,
         [action.value.id]: newAppointment

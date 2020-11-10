@@ -50,7 +50,7 @@ export default function useApplicationData() {
       cb(errorParams)
      });    
 }
-
+//cancel Interview
 function cancelInterview(id, cb, params, errorParams) {
   const appointment = {
     ...state.appointments[id],
